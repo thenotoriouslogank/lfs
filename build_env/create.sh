@@ -7,3 +7,11 @@ if ! test $(whoami) == "distbuild" ; then
 fi
 
 echo "Creating build environment..."
+cd $DIST_ROOT
+
+bash -e build_env/build_scripts/binutils-pass-1.sh
+bash -e build_env/build_scripts/gcc-pass-1.sh
+bash -e build_env/build_scripts/linux-headers.sh
+bash -e build_env/build_scripts/glibc.sh
+
+echo "Done."
